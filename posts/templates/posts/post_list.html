@@ -1,14 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FavHomes</title>
-</head>
-<body>
+{% extends 'posts/base.html' %}
+{% block content %}
+<a href="{% url 'new' %}"><h1>Create new post</h1></a>
     {% for post in object_list %}
     <strong>{{ post.author.username }}</strong><br>
-    <img src="{{ post.image.url }}" width=400 height=400>
+    <a href=""><img src="{{ post.image.url }}" width=400 height=400></a>
     {% endfor %}
-</body>
-</html>
+{% endblock %}
+
