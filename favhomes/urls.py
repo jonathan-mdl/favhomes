@@ -18,10 +18,12 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 from posts.views import PostList, PostCreate, PostDetail
+from django.conf import settings
+from django.conf.urls.static import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', PostList.as_view(), name='List'),
     path('new', PostCreate.as_view(), name='new'),
     path('posts/<pk>/', PostDetail.as_view(), name='detail'),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
